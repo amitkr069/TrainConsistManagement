@@ -1,12 +1,12 @@
 /**
  * @author Amit
- * @version 4.0
+ * @version 5.0
  * 
- * This is Use case 4
- * In this we are using LinkedList and hashSet both
- * set ensure the unique elements and linked list maintains the order
- * here we are also adding and removing bogies from the front and rear both.
- * we are also adding bogie at any position.
+ * This is Use case 5
+ * In this we are using LinkedhashSet.
+ * set ensure the unique elements and linked list maintains the order.
+ * 
+ * In this we are ensuring that the order is maintained and unique elements are inserted.
  * 
  */
 package com.main;
@@ -25,22 +25,11 @@ public class TrainManagement {
 		
 		TrainConsist train = new TrainConsist();
 		
-//		System.out.println("Initial Bogie count: " + train.getBogieCount());
-		
-//		train.displayTrainState();
-		
-		
-		
-		
 		while(true) {
-			System.out.println("1. Add Bogie at the front");
-			System.out.println("2. Add Bogie at the end");
-			System.out.println("3. Add Bogie at any position");
-			System.out.println("4. Remove Bogie from the front");
-			System.out.println("5. Remove Bogie from the end");
-			System.out.println("6. See Train");
-			System.out.println("7. Check for a Bogie");
-			System.out.println("8. Exit");
+			System.out.println("1. Add Bogie");
+			System.out.println("2. See Train");
+			System.out.println("3. Check for a Bogie");
+			System.out.println("4. Exit");
 			
 			
 			System.out.println("Enter choice");
@@ -54,39 +43,18 @@ public class TrainManagement {
 				
 				System.out.print("Enter Bogie Type: ");
 				String type = sc.nextLine();
-				train.addBogieAtFirst(type);
-				break;
-			case 2:
-				System.out.print("Enter Bogie Type: ");
-				type = sc.nextLine();
-				train.addBogieAtLast(type);
-				break;
-			case 3:
-				System.out.print("Enter position: ");
-				int pos = sc.nextInt();
-				sc.nextLine();
-				
-				System.out.print("Enter Bogie Type: ");
-				type = sc.nextLine();
-				train.addBogieAtIndex(pos - 1, type);
-				break;
-				
-			case 4:
-				train.removeBogieFromFront();
-				break;
-			case 5:
-				train.removeBogieFromEnd();
+				train.addBogie(type);
 				break;
 			
-			case 6:
+			case 2:
 				train.displayTrainState();
 				break;
-			case 7:
-				System.out.print("Enter Bogie Id: ");
+			case 3:
+				System.out.print("Enter Bogie type: ");
 				type = sc.nextLine();
 				train.checkBogie(type);
 				break;
-			case 8:
+			case 4:
 				return;
 			}
 			
