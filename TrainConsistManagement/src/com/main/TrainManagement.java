@@ -1,12 +1,9 @@
 /**
  * @author Amit
- * @version 5.0
+ * @version 6.0
  * 
- * This is Use case 5
- * In this we are using LinkedhashSet.
- * set ensure the unique elements and linked list maintains the order.
- * 
- * In this we are ensuring that the order is maintained and unique elements are inserted.
+ * This is Use case 6
+ * In this we are using HashMap to add bogie and its capacity.
  * 
  */
 package com.main;
