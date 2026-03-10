@@ -5,17 +5,17 @@ public class Bogie {
 	private String bogieType;
 	
 	
-	public Bogie(String bogieType) {
-		this.bogieType = bogieType;
+	public Bogie(String bogieId) {
+		this.bogieId = bogieId;
 	}
 	
-//	public String getBogieId() {
-//		return bogieId;
+	public String getBogieId() {
+		return bogieId;
+	}
+	
+//	public String getBogieType() {
+//		return bogieType;
 //	}
-	
-	public String getBogieType() {
-		return bogieType;
-	}
 	
 	@Override
 	public String toString() {

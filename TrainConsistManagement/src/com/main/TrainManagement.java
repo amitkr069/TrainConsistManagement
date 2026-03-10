@@ -1,17 +1,11 @@
 /**
  * @author Amit
- * @version 2.0
+ * @version 3.0
  * 
- * This is Use case 2
- * In this we are adding bogie type in the List;
- * and also removing bogie type from the list and checking the type of bogie;
+ * This is Use case 3
+ * In this we are adding bogie Ids in the set
+ * Preventing duplicates
  * 
- * 
- * At this stoge, the application: 
- * Adds new bogies to the train 
- * Removes existing bogies 
- * Checks for bogie availability 
- * Displays the final consist
  */
 package com.main;
 
@@ -53,12 +47,12 @@ public class TrainManagement {
 			switch(choice) {
 			case 1:
 				
-				System.out.print("Enter Bogie Type: ");
+				System.out.print("Enter Bogie Id: ");
 				String type = sc.nextLine();
 				train.addBogie(type);
 				break;
 			case 2:
-				System.out.print("Enter Bogie Type: ");
+				System.out.print("Enter Bogie Id: ");
 				type = sc.nextLine();
 				train.removeBogie(type);
 				break;
@@ -66,7 +60,7 @@ public class TrainManagement {
 				train.displayTrainState();
 				break;
 			case 4:
-				System.out.print("Enter Bogie Type: ");
+				System.out.print("Enter Bogie Id: ");
 				type = sc.nextLine();
 				train.checkBogie(type);
 				break;
