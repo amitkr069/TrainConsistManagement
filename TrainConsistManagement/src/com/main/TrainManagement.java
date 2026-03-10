@@ -28,8 +28,7 @@ public class TrainManagement {
 		while(true) {
 			System.out.println("1. Add Bogie");
 			System.out.println("2. See Train");
-			System.out.println("3. Check for a Bogie");
-			System.out.println("4. Exit");
+			System.out.println("3. Exit");
 			
 			
 			System.out.println("Enter choice");
@@ -43,18 +42,18 @@ public class TrainManagement {
 				
 				System.out.print("Enter Bogie Type: ");
 				String type = sc.nextLine();
-				train.addBogie(type);
+				
+				System.out.println("Enter capacity: ");
+				int capacity = sc.nextInt();
+				sc.nextLine();
+				
+				train.addBogie(type, capacity);
 				break;
 			
 			case 2:
 				train.displayTrainState();
 				break;
 			case 3:
-				System.out.print("Enter Bogie type: ");
-				type = sc.nextLine();
-				train.checkBogie(type);
-				break;
-			case 4:
 				return;
 			}
 			
