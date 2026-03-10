@@ -2,47 +2,86 @@ package com.service;
 
 
 //import java.util.ArrayList;
-//import java.util.List;
+import java.util.List;
 
 import java.util.Set;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import com.model.*;
 public class TrainConsist {
-	private HashSet<String> bogies;
+	private Set<String> bogiesSet;
+	private List<String> bogiesList;
 	
 	public TrainConsist() {
-		bogies = new HashSet<>();
+		bogiesSet = new HashSet<>();
+		bogiesList = new LinkedList<>();
+		
 	}
 	
 	public int getBogieCount() {
-		return bogies.size();
+		return bogiesList.size();
 	}
 	
-	public void addBogie(String bogieId) {
-//		Bogie bogie = new Bogie(bogieId);
-		bogies.add(bogieId);
+	public void addBogieAtFirst(String Bogietype) {
+		if(bogiesSet.contains(Bogietype)) return;
 		
-		System.out.println(bogieId + "Bogie added..");
+		bogiesList.addFirst(Bogietype);
+		bogiesSet.add(Bogietype);
+		
+		System.out.println(Bogietype + "Bogie added..");
 	}
 	
-	public void removeBogie(String type) {
+	
+	public void addBogieAtLast(String Bogietype) {
+		if(bogiesSet.contains(Bogietype)) return;
 		
-			if(bogies.contains(type)) {
-				bogies.remove(type);
-				System.out.println(type + "Bogie removed");
-				return;
-			}
-			
+		bogiesList.addLast(Bogietype);
+		bogiesSet.add(Bogietype);
 		
-		System.out.println("Bogie not found");
+		System.out.println(Bogietype + "Bogie added..");
 	}
+	
+	public void addBogieAtIndex(int index, String Bogietype) {
+		if(bogiesSet.contains(Bogietype)) return;
+		
+		if (index < 0 || index > bogiesList.size()) {
+            System.out.println("Error: Index out of bounds.");
+            return;
+        }
+		
+		bogiesList.add(index, Bogietype);
+		bogiesSet.add(Bogietype);
+		int position = index + 1;
+		System.out.println(Bogietype + "Bogie added at " + position + " position");
+	}
+	
+	
+	public void removeBogieFromFront() {
+				if(bogiesList.isEmpty()) {
+					System.out.println("No bogies..");
+					return;
+				}
+				bogiesList.removeFirst();
+				System.out.println("Bogie removed from front");
+		
+	}
+	
+	public void removeBogieFromEnd() {
+		if(bogiesList.isEmpty()) {
+			System.out.println("No bogies..");
+			return;
+		}
+		bogiesList.removeLast();
+		System.out.println("Bogie removed from End");
+
+}
 	
 	public void checkBogie(String type) {
 		boolean found = false;
 		
 		
-			if(bogies.contains(type)) {
+			if(bogiesSet.contains(type)) {
 				found = true;
 			}
 			
@@ -56,6 +95,6 @@ public class TrainConsist {
 	}
 	
 	public void displayTrainState() {
-		System.out.println("Current Train consist: " + bogies);
+		System.out.println("Current Train consist: " + bogiesList);
 	}
 }
