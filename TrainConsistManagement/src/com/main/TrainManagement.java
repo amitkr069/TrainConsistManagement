@@ -5,6 +5,7 @@
  * Here we are adding bogies with capacity.
  * Also after adding bogies we are filtering bogies based on capacity.
  * Using stream API to perform that
+ 
  */
 package com.main;
 
