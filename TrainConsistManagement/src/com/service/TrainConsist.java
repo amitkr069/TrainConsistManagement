@@ -32,15 +32,11 @@ public class TrainConsist {
 		System.out.println("Train State: " + bogie);
 	}
 	
-	public void groupBogies() {
-		Map<String, List<Bogie>>  groupedBogies = bogie.stream().collect(Collectors.groupingBy(b -> b.getBogieType()));
+	public void sumOfCapacity() {
 		
-		System.out.println("Bogies after grouping..");
+		int sum = bogie.stream().map(b -> b.getCapacity()).reduce(0, (a,b) -> a + b);
 		
-		for(Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
-			System.out.println("Bogie Type " + entry.getKey() + "\n" + entry.getValue());
-		}
-		
+		System.out.println("Total seating Capacity of Train: " + sum);
 		
 	}
 	

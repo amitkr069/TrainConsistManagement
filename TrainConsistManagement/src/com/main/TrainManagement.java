@@ -1,10 +1,10 @@
 /**
  * @author Amit
- * @version 9.0
+ * @version 10.0
  * 
  * Here we are creating a list of bogies with capacity.
- * then using stream API to group the bogies and storing the result in a map.
- * then displaying the results.
+ * then using stream API to get the sum of the total capacity
+ * 
  */
 package com.main;
 
@@ -25,7 +25,7 @@ public class TrainManagement {
 		while(true) {
 			System.out.println("1. Add Bogie");
 			System.out.println("2. See Train");
-			System.out.println("3. Group Bogies");
+			System.out.println("3. Get sum of the capacity");
 			System.out.println("4. Exit");
 			
 			
@@ -52,7 +52,7 @@ public class TrainManagement {
 				train.displayTrainState();
 				break;
 			case 3:
-				train.groupBogies();
+				train.sumOfCapacity();
 				break;
 			case 4:
 				return;
@@ -64,3 +64,4 @@ public class TrainManagement {
 		
 	}
 }
+
