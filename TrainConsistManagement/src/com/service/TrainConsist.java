@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import java.util.Map;
+
 
 public class TrainConsist {
 
@@ -30,14 +32,16 @@ public class TrainConsist {
 		System.out.println("Train State: " + bogie);
 	}
 	
-	public void filterBogies() {
-		List<Bogie> newBogies = bogie.stream().filter(b -> b.getCapacity() > 60).collect(Collectors.toList());
+	public void groupBogies() {
+		Map<String, List<Bogie>>  groupedBogies = bogie.stream().collect(Collectors.groupingBy(b -> b.getBogieType()));
 		
-		System.out.println("Filtered Bogies with capacity > 60");
+		System.out.println("Bogies after grouping..");
 		
-		for(Bogie b: newBogies) {
-			System.out.println(b);
+		for(Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+			System.out.println("Bogie Type " + entry.getKey() + "\n" + entry.getValue());
 		}
+		
+		
 	}
 	
 	

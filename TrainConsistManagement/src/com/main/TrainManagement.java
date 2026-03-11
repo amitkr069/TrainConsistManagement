@@ -1,9 +1,10 @@
 /**
  * @author Amit
- * @version 7.0
+ * @version 9.0
  * 
- * Here we are adding bogies with capacity sorting bogies based on capacity in ascending order
- * using list and custom comparator to sort the list;
+ * Here we are creating a list of bogies with capacity.
+ * then using stream API to group the bogies and storing the result in a map.
+ * then displaying the results.
  */
 package com.main;
 
@@ -24,7 +25,7 @@ public class TrainManagement {
 		while(true) {
 			System.out.println("1. Add Bogie");
 			System.out.println("2. See Train");
-			System.out.println("3. Filter Bogies");
+			System.out.println("3. Group Bogies");
 			System.out.println("4. Exit");
 			
 			
@@ -51,8 +52,7 @@ public class TrainManagement {
 				train.displayTrainState();
 				break;
 			case 3:
-				train.filterBogies();
-//				train.displayTrainState();
+				train.groupBogies();
 				break;
 			case 4:
 				return;
