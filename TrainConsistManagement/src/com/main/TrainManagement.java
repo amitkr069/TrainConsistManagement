@@ -1,13 +1,9 @@
 /**
  * @author Amit
- * @version 5.0
+ * @version 7.0
  * 
- * This is Use case 5
- * In this we are using LinkedhashSet.
- * set ensure the unique elements and linked list maintains the order.
- * 
- * In this we are ensuring that the order is maintained and unique elements are inserted.
- * 
+ * Here we are adding bogies with capacity sorting bogies based on capacity in ascending order
+ * using list and custom comparator to sort the list;
  */
 package com.main;
 
@@ -28,7 +24,8 @@ public class TrainManagement {
 		while(true) {
 			System.out.println("1. Add Bogie");
 			System.out.println("2. See Train");
-			System.out.println("3. Exit");
+			System.out.println("3. Sort Bogies");
+			System.out.println("4. Exit");
 			
 			
 			System.out.println("Enter choice");
@@ -54,6 +51,11 @@ public class TrainManagement {
 				train.displayTrainState();
 				break;
 			case 3:
+				System.out.println("Bogies after sorting...");
+				train.sortBogies();
+				train.displayTrainState();
+				break;
+			case 4:
 				return;
 			}
 			

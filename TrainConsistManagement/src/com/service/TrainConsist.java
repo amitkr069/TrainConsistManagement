@@ -1,35 +1,36 @@
 package com.service;
 
-
-
-import java.util.Map;
-import java.util.HashMap;
+import com.model.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class TrainConsist {
 
-	private Map<String, Integer> bogieMap;
+	private List<Bogie> bogie;
 	
 	public TrainConsist() {
-		bogieMap = new HashMap<>();
+		bogie = new ArrayList<>();
 		
 	}
 	
 	public int getBogieCount() {
-		return bogieMap.size();
+		return bogie.size();
 	}
 	
 	public void addBogie(String Bogietype, int capacity) {
-		bogieMap.put(Bogietype, capacity);
+		bogie.add(new Bogie(Bogietype, capacity));
 		
 		System.out.println(Bogietype + "Bogie added with capacity: " + capacity);
 	}
 	
 	
 	public void displayTrainState() {
-		System.out.println("Bogie capacity details...");
-		for (Map.Entry<String, Integer> entry : bogieMap.entrySet()) {
-            System.out.println(entry.getKey() + " => " + entry.getValue());
-        }
+		System.out.println("Train State: " + bogie);
+	}
+	
+	public void sortBogies() {
+		Collections.sort(bogie, new BogieComparator());
 	}
 }
