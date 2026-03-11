@@ -1,9 +1,10 @@
 /**
  * @author Amit
- * @version 7.0
+ * @version 8.0
  * 
- * Here we are adding bogies with capacity sorting bogies based on capacity in ascending order
- * using list and custom comparator to sort the list;
+ * Here we are adding bogies with capacity.
+ * Also after adding bogies we are filtering bogies based on capacity.
+ * Using stream API to perform that
  */
 package com.main;
 
@@ -52,7 +53,6 @@ public class TrainManagement {
 				break;
 			case 3:
 				train.filterBogies();
-//				train.displayTrainState();
 				break;
 			case 4:
 				return;
