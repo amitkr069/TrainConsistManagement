@@ -1,9 +1,9 @@
 /**
  * @author Amit
- * @version 10.0
+ * @version 11.0
  * 
- * Here we are creating a list of bogies with capacity.
- * then using stream API to get the sum of the total capacity
+ * Here we are taking input as train Id and cargo code and
+ * validating using regex and printing if either are true or false
  * 
  */
 package com.main;
@@ -20,46 +20,20 @@ public class TrainManagement {
 		System.out.println("Train consist Management System");
 		System.out.println();
 		
-		TrainConsist train = new TrainConsist();
 		
-		while(true) {
-			System.out.println("1. Add Bogie");
-			System.out.println("2. See Train");
-			System.out.println("3. Get sum of the capacity");
-			System.out.println("4. Exit");
-			
-			
-			System.out.println("Enter choice");
-			int choice = sc.nextInt();
-			
-			sc.nextLine();
-			
-			
-			switch(choice) {
-			case 1:
-				
-				System.out.print("Enter Bogie Type: ");
-				String type = sc.nextLine();
-				
-				System.out.println("Enter capacity: ");
-				int capacity = sc.nextInt();
-				sc.nextLine();
-				
-				train.addBogie(type, capacity);
-				break;
-			
-			case 2:
-				train.displayTrainState();
-				break;
-			case 3:
-				train.sumOfCapacity();
-				break;
-			case 4:
-				return;
-			}
-			
-			
-		}
+		
+		System.out.print("Enter Train Id (Format - TRN-1234): ");
+		String trainId = sc.nextLine();
+		
+		System.out.print("Enter Cargo code (Format PET-AB): ");
+		String cargoCode = sc.nextLine();
+		
+		
+		
+		Pattern matcher = new Pattern();
+		System.out.println("Train ID Valid: " + matcher.validateTrainId(trainId) );
+		
+		System.out.println("Cargo Code Valid: " + matcher.validateCargocode(cargoCode));
 				
 		
 	}
