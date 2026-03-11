@@ -3,7 +3,7 @@ package com.service;
 import com.model.*;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.stream.Collectors;
 
 
 public class TrainConsist {
@@ -30,7 +30,15 @@ public class TrainConsist {
 		System.out.println("Train State: " + bogie);
 	}
 	
-	public void sortBogies() {
-		Collections.sort(bogie, new BogieComparator());
+	public void filterBogies() {
+		List<Bogie> newBogies = bogie.stream().filter(b -> b.getCapacity() > 60).collect(Collectors.toList());
+		
+		System.out.println("Filtered Bogies with capacity > 60");
+		
+		for(Bogie b: newBogies) {
+			System.out.println(b);
+		}
 	}
+	
+	
 }

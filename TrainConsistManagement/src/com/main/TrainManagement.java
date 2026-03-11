@@ -24,7 +24,7 @@ public class TrainManagement {
 		while(true) {
 			System.out.println("1. Add Bogie");
 			System.out.println("2. See Train");
-			System.out.println("3. Sort Bogies");
+			System.out.println("3. Filter Bogies");
 			System.out.println("4. Exit");
 			
 			
@@ -51,9 +51,8 @@ public class TrainManagement {
 				train.displayTrainState();
 				break;
 			case 3:
-				System.out.println("Bogies after sorting...");
-				train.sortBogies();
-				train.displayTrainState();
+				train.filterBogies();
+//				train.displayTrainState();
 				break;
 			case 4:
 				return;
