@@ -1,9 +1,10 @@
 /**
  * @author Amit
- * @version 17.0
+ * @version 18.0
  * 
- * Here we are taking input as capacities
- * and sorting the capacities using bubble sort
+ * Here we are taking input as bogieID
+ * and then taking user input to search for Id.
+ * using linear search
  */
 package com.main;
 
@@ -24,6 +25,8 @@ public class TrainManagement {
 		System.out.println("Enter size: ");
 		int n = sc.nextInt();
 		
+		sc.nextLine();
+		
 		TrainConsist train = new TrainConsist(n);
 		
 		train.addBogie();
@@ -33,7 +36,10 @@ public class TrainManagement {
 		
 		System.out.println();
 		
-		train.sortBogie();
+		System.out.print("Enter bogie id to search: ");
+		String id = sc.nextLine();
+		
+		train.searchBogie(id);
 	
 	}
 }

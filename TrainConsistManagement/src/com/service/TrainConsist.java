@@ -1,45 +1,51 @@
 package com.service;
 
-import com.model.*;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class TrainConsist {
 
-	private String[] bogieType;
+	private String[] bogieId;
 	
 	
 	Scanner sc = new Scanner(System.in);
 	
 	public TrainConsist(int size) {
-		bogieType = new String[size];
+		bogieId = new String[size];
 	}
 	
 	public void addBogie() {
-		for(int i = 0; i<bogieType.length; i++) {
+		for(int i = 0; i<bogieId.length; i++) {
 			
-			System.out.println("Enter type");
+			System.out.print("Enter Bogie Id: ");
 			String type = sc.nextLine();
 			
-			bogieType[i] = type;
+			bogieId[i] = type;
 		}
 		
 	}
 	
 	public void displayBogie() {
-		System.out.println(Arrays.toString(bogieType));
+		System.out.println(Arrays.toString(bogieId));
 	}
 	
-	public void sortBogie() {
-		Arrays.sort(bogieType);
+	public void searchBogie(String id) {
+		boolean found = false;
 		
-		System.out.println("Bogies after sorting. ");
-		displayBogie();
+		for(int i = 0; i<bogieId.length; i++) {
+			if(bogieId[i].equals(id)) {
+				found = true;
+				break;
+			}
+		}
+		
+		if(found) {
+			System.out.println("Bogie " + id + " found in Train consist");
+		}
+		else {
+			System.out.println("Bogie " + id + " not found in Train consist");
+		}
 	}
-	
-	
-	
+		
 }
