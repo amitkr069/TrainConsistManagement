@@ -1,6 +1,6 @@
 /**
  * @author Amit
- * @version 1.0
+ * @version 17.0
  * 
  * Here we are taking input as capacities
  * and sorting the capacities using bubble sort
@@ -19,21 +19,21 @@ public class TrainManagement {
 		System.out.println("Train consist Management System");
 		System.out.println();
 		
-		TrainConsist train = new TrainConsist();
+		
 		
 		System.out.println("Enter size: ");
 		int n = sc.nextInt();
 		
-		train.addBogie(n);
-		System.out.println("Original Capacities");
+		TrainConsist train = new TrainConsist(n);
 		
-		train.displayTrainState();
+		train.addBogie();
+		System.out.println("Original Bogies.");
+		
+		train.displayBogie();
 		
 		System.out.println();
 		
-		System.out.println("Sorted capacities.");
-		train.sortCapacity();
-		train.displayTrainState();
+		train.sortBogie();
 	
 	}
 }
