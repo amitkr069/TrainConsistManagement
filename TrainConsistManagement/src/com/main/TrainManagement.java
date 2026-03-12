@@ -1,10 +1,10 @@
 /**
  * @author Amit
- * @version 18.0
+ * @version 19.0
  * 
  * Here we are taking input as bogieID
  * and then taking user input to search for Id.
- * using linear search
+ * using binary search
  */
 package com.main;
 
@@ -39,7 +39,14 @@ public class TrainManagement {
 		System.out.print("Enter bogie id to search: ");
 		String id = sc.nextLine();
 		
-		train.searchBogie(id);
+		int index = train.searchBogie(id);
+		
+		if(index == -1) {
+			System.out.println("Bogie " + id + " not found");
+		}
+		else {
+			System.out.println("Bogie " + id + " found in Train");
+		}
 	
 	}
 }

@@ -30,22 +30,31 @@ public class TrainConsist {
 		System.out.println(Arrays.toString(bogieId));
 	}
 	
-	public void searchBogie(String id) {
-		boolean found = false;
-		
-		for(int i = 0; i<bogieId.length; i++) {
-			if(bogieId[i].equals(id)) {
-				found = true;
-				break;
-			}
-		}
-		
-		if(found) {
-			System.out.println("Bogie " + id + " found in Train consist");
-		}
-		else {
-			System.out.println("Bogie " + id + " not found in Train consist");
-		}
+	
+	public void sortBogie() {
+		Arrays.sort(bogieId);
+	}
+	
+	public int searchBogie(String id) {
+		sortBogie();
+		int left = 0;
+        int right = bogieId.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            
+            int cmp = bogieId[mid].compareTo(id);
+
+            if (cmp == 0) {
+                return mid; 
+            } else if (cmp < 0) {
+                left = mid + 1; 
+            } else {
+                right = mid - 1; 
+            }
+        }
+        return -1; 
 	}
 		
 }
