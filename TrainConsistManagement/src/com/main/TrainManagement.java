@@ -1,15 +1,13 @@
 /**
  * @author Amit
- * @version 15.0
+ * @version 1.0
  * 
- * Here we are taking input as Cargo type and shape
- * if cargo type is cylindrical and shape is not cylindrical then the system will throw an error
- * and the bogie will not be added in the list
+ * Here we are taking input as capacities
+ * and sorting the capacities using bubble sort
  */
 package com.main;
 
 import com.service.*;
-import com.validation.*;
 
 import java.util.Scanner;
 
@@ -23,45 +21,19 @@ public class TrainManagement {
 		
 		TrainConsist train = new TrainConsist();
 		
-		while(true) {
-			System.out.println("1. Add Bogie");
-			
-			System.out.println("2. Exit");
-			
-			
-			System.out.print("Enter choice: ");
-			int choice = sc.nextInt();
-			
-			sc.nextLine();
-			
-			switch(choice) {
-			case 1:
-				System.out.print("Enter Bogie Type: ");
-				String bogieType = sc.nextLine();
-				
-				System.out.print("Enter Capacity: ");
-				
-				try {
-					String shape = sc.nextLine();
-					train.addBogie(bogieType, shape);
-				}
-				catch (NumberFormatException e){
-					System.out.println("Error : Capacity should be an integer");
-				}
-				catch (CargoSafetyException e){
-					System.out.println("\nError : "+e.getMessage());
-				}
-				finally {
-					System.out.println("Execution handling completed.");
-				}
-				
-				break;
-			
-			case 2:
-				return;
-			}
-				
-		}
+		System.out.println("Enter size: ");
+		int n = sc.nextInt();
+		
+		train.addBogie(n);
+		System.out.println("Original Capacities");
+		
+		train.displayTrainState();
+		
+		System.out.println();
+		
+		System.out.println("Sorted capacities.");
+		train.sortCapacity();
+		train.displayTrainState();
 	
 	}
 }
