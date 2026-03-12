@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import java.util.Map;
-
+import com.validation.*;
 
 public class TrainConsist {
 
@@ -22,7 +22,8 @@ public class TrainConsist {
 		return bogie.size();
 	}
 	
-	public void addBogie(String Bogietype, int capacity) {
+	public void addBogie(String Bogietype, int capacity) throws InvalidCapacityException{
+		
 		bogie.add(new Bogie(Bogietype, capacity));
 		
 		System.out.println(Bogietype + "capacity: " + capacity);
@@ -51,30 +52,6 @@ public class TrainConsist {
 				newBogies2.add(b);
 			}
 		}
-	}
-	
-	public void performanceComparison() {
-		long start1 = System.nanoTime();
-		
-		filterBogiesUsingStream();
-		
-		long end1 = System.nanoTime();
-		
-		long time1 =  end1 - start1;
-		
-		System.out.println("Steam execution time: " + time1);
-		
-		
-		long start2 = System.nanoTime();
-		
-		filterBogiesUsingLoop();
-		
-		long end2 = System.nanoTime();
-		
-		long time2 = end2 - start2;
-		
-		System.out.println("Steam execution time: " + time2);
-		
 	}
 	
 	

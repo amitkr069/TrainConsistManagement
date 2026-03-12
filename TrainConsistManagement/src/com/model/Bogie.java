@@ -1,12 +1,17 @@
 package com.model;
 
+import com.validation.*;
 
 public class Bogie {
 
     private String bogieType;
     private int capacity;
 
-    public Bogie(String bogieType, int capacity) {
+    public Bogie(String bogieType, int capacity) throws InvalidCapacityException {
+    	
+    	if(capacity <= 0) {
+    		throw new InvalidCapacityException("Capacity must me greater than 0");
+    	}
         this.bogieType = bogieType;
         this.capacity = capacity;
     }

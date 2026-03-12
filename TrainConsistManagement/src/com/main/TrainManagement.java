@@ -1,14 +1,15 @@
 /**
  * @author Amit
- * @version 13.0
+ * @version 14.0
  * 
  * Here we are taking input as Cargo type and capacity
- * and filtering cargo with capacity using both stream and loop
- * then checking performance comparison for both and displaying the results
+ * and validating the capacity using try catch
+ * if capacity <= 0 then it will throw error
  */
 package com.main;
 
 import com.service.*;
+import com.validation.*;
 
 import java.util.Scanner;
 
@@ -24,8 +25,8 @@ public class TrainManagement {
 		
 		while(true) {
 			System.out.println("1. Add Bogie");
-			System.out.println("2. Performance Comparison");
-			System.out.println("3. Exit");
+			
+			System.out.println("2. Exit");
 			
 			
 			System.out.print("Enter choice: ");
@@ -39,14 +40,21 @@ public class TrainManagement {
 				String bogieType = sc.nextLine();
 				
 				System.out.print("Enter Capacity: ");
-				int capacity = sc.nextInt();
 				
-				train.addBogie(bogieType, capacity);
+				try {
+					int capacity = sc.nextInt();
+					train.addBogie(bogieType, capacity);
+				}
+				catch (NumberFormatException e){
+					System.out.println("Error : Capacity should be an integer");
+				}
+				catch (InvalidCapacityException e){
+					System.out.println("\nError : "+e.getMessage());
+				}
+				
 				break;
+			
 			case 2:
-				train.performanceComparison();
-				break;
-			case 3:
 				return;
 			}
 			
