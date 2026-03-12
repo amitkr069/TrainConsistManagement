@@ -1,10 +1,11 @@
 /**
  * @author Amit
- * @version 19.0
+ * @version 20.0
  * 
  * Here we are taking input as bogieID
  * and then taking user input to search for Id.
  * using binary search
+ * before searching we are also doing exception handling to check if the train is empty.
  */
 package com.main;
 
@@ -39,13 +40,20 @@ public class TrainManagement {
 		System.out.print("Enter bogie id to search: ");
 		String id = sc.nextLine();
 		
-		int index = train.searchBogie(id);
+		try {
+			
 		
-		if(index == -1) {
-			System.out.println("Bogie " + id + " not found");
+			int index = train.searchBogie(id);
+			
+			if(index == -1) {
+				System.out.println("Bogie " + id + " not found");
+			}
+			else {
+				System.out.println("Bogie " + id + " found in Train");
+			}
 		}
-		else {
-			System.out.println("Bogie " + id + " found in Train");
+		catch (IllegalStateException ex){
+			System.out.println(ex.getMessage());
 		}
 	
 	}

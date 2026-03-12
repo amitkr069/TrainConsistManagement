@@ -12,6 +12,9 @@ public class TrainConsist {
 	Scanner sc = new Scanner(System.in);
 	
 	public TrainConsist(int size) {
+		if(size < 0) {
+			throw new IllegalArgumentException("Size cannot be negative.");
+		}
 		bogieId = new String[size];
 	}
 	
@@ -35,7 +38,18 @@ public class TrainConsist {
 		Arrays.sort(bogieId);
 	}
 	
+
+	private void validateBogie() {
+        boolean hasAny = Arrays.stream(bogieId)
+                .anyMatch(s -> s != null && !s.isBlank());
+        if (!hasAny) {
+            throw new IllegalStateException("No bogies available to search.");
+        }
+    }
+
+	
 	public int searchBogie(String id) {
+		validateBogie();
 		sortBogie();
 		int left = 0;
         int right = bogieId.length - 1;
