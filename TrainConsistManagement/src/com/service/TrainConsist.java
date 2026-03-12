@@ -11,6 +11,7 @@ import java.util.Map;
 public class TrainConsist {
 
 	private List<Bogie> bogie;
+//	private List<Bogie> newBogies;
 	
 	public TrainConsist() {
 		bogie = new ArrayList<>();
@@ -21,10 +22,10 @@ public class TrainConsist {
 		return bogie.size();
 	}
 	
-	public void addBogie(String Bogietype, String cargoType) {
-		bogie.add(new Bogie(Bogietype, cargoType));
+	public void addBogie(String Bogietype, int capacity) {
+		bogie.add(new Bogie(Bogietype, capacity));
 		
-		System.out.println(Bogietype + "-> " + cargoType);
+		System.out.println(Bogietype + "capacity: " + capacity);
 	}
 	
 	
@@ -32,10 +33,47 @@ public class TrainConsist {
 		System.out.println("Train State: " + bogie);
 	}
 	
-	public boolean checkSafety() {
+	public void filterBogiesUsingStream() {
+		List<Bogie> newBogies1 = bogie.stream().filter(b -> b.getCapacity() > 60).collect(Collectors.toList());
 		
-		return bogie.stream().allMatch(b -> !b.getBogieType().equalsIgnoreCase("Cylindrical") || 
-				b.getCargoType().equalsIgnoreCase("Petroleum"));
+		System.out.println("Filtered Bogies with capacity > 60");
+		
+//		for(Bogie b: newBogies) {
+//			System.out.println(b);
+//		}
+	}
+	
+	public void filterBogiesUsingLoop() {
+		List<Bogie> newBogies2 = new ArrayList<>();
+		
+		for(Bogie b: bogie) {
+			if(b.getCapacity() > 60) {
+				newBogies2.add(b);
+			}
+		}
+	}
+	
+	public void performanceComparison() {
+		long start1 = System.nanoTime();
+		
+		filterBogiesUsingStream();
+		
+		long end1 = System.nanoTime();
+		
+		long time1 =  end1 - start1;
+		
+		System.out.println("Steam execution time: " + time1);
+		
+		
+		long start2 = System.nanoTime();
+		
+		filterBogiesUsingLoop();
+		
+		long end2 = System.nanoTime();
+		
+		long time2 = end2 - start2;
+		
+		System.out.println("Steam execution time: " + time2);
 		
 	}
 	

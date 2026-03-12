@@ -4,23 +4,23 @@ package com.model;
 public class Bogie {
 
     private String bogieType;
-    private String cargoType;
+    private int capacity;
 
-    public Bogie(String bogieType, String cargoType) {
+    public Bogie(String bogieType, int capacity) {
         this.bogieType = bogieType;
-        this.cargoType = cargoType;
+        this.capacity = capacity;
     }
 
     public String getBogieType() {
         return bogieType;
     }
 
-    public String getCargoType() {
-        return cargoType;
+    public int getCapacity() {
+        return capacity;
     }
 
     @Override
     public String toString() {
-        return bogieType + "->" + cargoType;
+        return bogieType + "capacity " + capacity;
     }
 }
