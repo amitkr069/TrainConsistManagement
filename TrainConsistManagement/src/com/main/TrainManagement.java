@@ -1,10 +1,10 @@
 /**
  * @author Amit
- * @version 14.0
+ * @version 15.0
  * 
- * Here we are taking input as Cargo type and capacity
- * and validating the capacity using try catch
- * if capacity <= 0 then it will throw error
+ * Here we are taking input as Cargo type and shape
+ * if cargo type is cylindrical and shape is not cylindrical then the system will throw an error
+ * and the bogie will not be added in the list
  */
 package com.main;
 
@@ -42,14 +42,17 @@ public class TrainManagement {
 				System.out.print("Enter Capacity: ");
 				
 				try {
-					int capacity = sc.nextInt();
-					train.addBogie(bogieType, capacity);
+					String shape = sc.nextLine();
+					train.addBogie(bogieType, shape);
 				}
 				catch (NumberFormatException e){
 					System.out.println("Error : Capacity should be an integer");
 				}
-				catch (InvalidCapacityException e){
+				catch (CargoSafetyException e){
 					System.out.println("\nError : "+e.getMessage());
+				}
+				finally {
+					System.out.println("Execution handling completed.");
 				}
 				
 				break;
@@ -57,18 +60,9 @@ public class TrainManagement {
 			case 2:
 				return;
 			}
-			
-			
-			
-			
+				
 		}
-		
-		
-		
-		
-		
-		
-		
+	
 	}
 }
 

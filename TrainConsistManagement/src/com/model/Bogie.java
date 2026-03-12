@@ -5,27 +5,27 @@ import com.validation.*;
 public class Bogie {
 
     private String bogieType;
-    private int capacity;
+    private String shape;
 
-    public Bogie(String bogieType, int capacity) throws InvalidCapacityException {
+    public Bogie(String bogieType, String shape) throws CargoSafetyException {
     	
-    	if(capacity <= 0) {
-    		throw new InvalidCapacityException("Capacity must me greater than 0");
+    	if(bogieType.equalsIgnoreCase("Petroleum") && !shape.equalsIgnoreCase("Cylindrical")) {
+    		throw new CargoSafetyException("Unsafe Cargo Assignment...");
     	}
         this.bogieType = bogieType;
-        this.capacity = capacity;
+        this.shape = shape;
     }
 
     public String getBogieType() {
         return bogieType;
     }
 
-    public int getCapacity() {
-        return capacity;
+    public String getShape() {
+    	return shape;
     }
 
     @Override
     public String toString() {
-        return bogieType + "capacity " + capacity;
+        return bogieType + "shape -> " + shape;
     }
 }
