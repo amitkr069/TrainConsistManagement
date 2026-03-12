@@ -1,9 +1,10 @@
 /**
  * @author Amit
- * @version 11.0
+ * @version 12.0
  * 
- * Here we are taking input as train Id and cargo code and
- * validating using regex and printing if either are true or false
+ * Here we are taking input as Cargo type and bogie type
+ * then doing a safety compliance check such that for cylindrical only petroleum is allowed
+ * else its not safe
  * 
  */
 package com.main;
@@ -20,21 +21,19 @@ public class TrainManagement {
 		System.out.println("Train consist Management System");
 		System.out.println();
 		
+		TrainConsist train = new TrainConsist();
+		
+		System.out.print("Enter Bogie Type: ");
+		String bogieType = sc.nextLine();
+		
+		System.out.print("Enter Cargo Type: ");
+		String cargoType = sc.nextLine();
+		
+		train.addBogie(bogieType, cargoType);
+		
+		System.out.println("Safety Compliance Status: " + train.checkSafety());
 		
 		
-		System.out.print("Enter Train Id (Format - TRN-1234): ");
-		String trainId = sc.nextLine();
-		
-		System.out.print("Enter Cargo code (Format PET-AB): ");
-		String cargoCode = sc.nextLine();
-		
-		
-		
-		Pattern matcher = new Pattern();
-		System.out.println("Train ID Valid: " + matcher.validateTrainId(trainId) );
-		
-		System.out.println("Cargo Code Valid: " + matcher.validateCargocode(cargoCode));
-				
 		
 	}
 }
